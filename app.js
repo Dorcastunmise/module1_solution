@@ -1,16 +1,32 @@
 (function () {
     'use strict';
 
-angular.module('LunchCheck', [])
-    .controller ('LunchCheckController', LunchCheckController);
+    var app = angular.module('LunchCheck', []);
 
-LunchCheckController.$inject = ['$scope'];
+    app.controller('LunchCheckController', LunchCheckController);
+        LunchCheckController.$inject = ['$scope'];
+        
+        function LunchCheckController($scope, $injector) {
+        $scope.name;
+        $scope.message;
+        $scope.loose = "Yaakov";
+        
+        $scope.food = function () {
+            if (!$scope.name) {
+                $scope.message = "Please enter data first";
+            }
+            else {
+                let nameSplit = $scope.name.split(" ");
+                if (nameSplit.length <= 3) {
+                    $scope.message = "Enjoy!";
+                }
+                else {
+                    $scope.message = "Too much!";
+                };
+            };
+        };
 
-function LunchCheckController ($scope, $injector) {
-    $scope.name = "Yaakov";
-    
-    console.log($injector.annotate(LunchCheckController()));
-}
-
+        console.log($injector.annotate(DIController));
+    };
 })();
 
