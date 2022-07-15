@@ -4,19 +4,18 @@
     var app = angular.module('LunchCheck', []);
 
     app.controller('LunchCheckController', LunchCheckController);
-        LunchCheckController.$inject = ['$scope'];
-        
-        function LunchCheckController($scope, $injector) {
+    LunchCheckController.$inject = ['$scope'];
+    function LunchCheckController($scope) {
         $scope.name;
         $scope.message;
         
-        $scope.food = function () {
+        $scope.displayPhase = function () {
             if (!$scope.name) {
                 $scope.message = "Please enter data first";
             }
             else {
                 let nameSplit = $scope.name.split(" ");
-                if (nameSplit.length <= 10) {
+                if (nameSplit.length <= 3) {
                     $scope.message = "Enjoy!";
                 }
                 else {
@@ -24,8 +23,5 @@
                 };
             };
         };
-
-        console.log($injector.annotate(LunchCheckController));
     };
 })();
-
