@@ -1,22 +1,16 @@
 (function () {
-  'use strict';
-    
-  angular.module('MsgApp', [])
-    .controller('MsgController', MsgController);
-    
-  MsgController.$inject = ['$scope'];
-    function MsgController($scope) {
-      $scope.name = "Yaakov";
-      $scope.stateofbeing = "hungry";
-      $scope.sayMessage = function () {
-        return "Yaakov likes to eat healthy snacks at night!"
-    };
+    'use strict';
 
-  $scope.feedYaakov = function () {
-    $scope.stateofbeing = "fed";
-  };
+angular.module('LunchCheck', [])
+    .controller ('LunchCheckController', LunchCheckController);
 
-    }
+LunchCheckController.$inject = ['$scope'];
 
+function LunchCheckController ($scope, $injector) {
+    $scope.name = "Yaakov";
     
-    })();
+    console.log($injector.annotate(LunchCheckController()));
+}
+
+})();
+

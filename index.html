@@ -1,29 +1,40 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app='LunchCheck'>
   <head>
     <title>Lunch Checker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <meta charset="utf-8">
     <style>
-      .message { font-size: 1.3em; font-weight: bold; }
+        .message { 
+            font-size: 1.3em; font-weight: bold; 
+        }
+
     </style>
   </head>
 <body>
-   <div class="container">
-     <h1>Lunch Checker</h1>
+    <div class="container">
+        <h1>Lunch Checker</h1>
+    <div ng-controller='LunchCheckController'>
+        <div class="form-group">
+            <input id="lunch-menu" type="text"
+            placeholder="list comma separated dishes you usually have for lunch"
+            class="form-control" ng-blur="upper()">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-default">Check If Too Much</button>
 
-         <div class="form-group">
-             <input id="lunch-menu" type="text"
-             placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control">
-         </div>
-         <div class="form-group">
-             <button class="btn btn-default">Check If Too Much</button>
-         </div>
-         <div class="form-group message">
-           <!-- Your message can go here. -->
-         </div>
-   </div>
+        </div>
+        <div class="form-group message" ng-model="name">
+            <br>
+           Ever since I started this course, the way I view things in programming languages changed.<br>
+            This is my first angular job carried out.<br>
+            I can't wait to do more.<br>
+            So, please enjoy this home-cooked meal made by {{name}} .<br>
+        </div>
+    </div>
+    </div>
+    <script ng-src="angular.min.js"></script>
 
 </body>
 </html>
