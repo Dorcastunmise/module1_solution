@@ -9,7 +9,6 @@
         function LunchCheckController($scope, $injector) {
         $scope.name;
         $scope.message;
-        $scope.loose = "Yaakov";
         
         $scope.food = function () {
             if (!$scope.name) {
@@ -17,7 +16,7 @@
             }
             else {
                 let nameSplit = $scope.name.split(" ");
-                if (nameSplit.length <= 3) {
+                if (nameSplit.length <= 10) {
                     $scope.message = "Enjoy!";
                 }
                 else {
