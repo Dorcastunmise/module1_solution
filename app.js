@@ -25,7 +25,7 @@
             };
         };
 
-        console.log($injector.annotate(DIController));
+        console.log($injector.annotate(LunchCheckController));
     };
 })();
 
